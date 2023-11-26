@@ -1,14 +1,18 @@
 import React from 'react';
+import { createContext } from 'react';
+import TicketStore from './TicketStore';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+export const Context = createContext(null)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <Context.Provider value={{ticketStore: new TicketStore()}}>
     <App />
-  </React.StrictMode>
+  </Context.Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
